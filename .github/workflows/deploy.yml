@@ -50,7 +50,7 @@ jobs:
       - name: Commit and Push
         shell: bash
         run: |
-          ts = $(TZ="Asia/Shanghai" date + "%Z %Y-%m-%d %A %H:%M:%S")
+          ts = $(TZ="Asia/Shanghai" date +"%Z %Y-%m-%d %A %H:%M:%S")
           cd docs/.vitepress/dist
           git init
           git config --global user.name '${{ secrets.GITHUBUSERNAME }}'
