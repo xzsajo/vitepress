@@ -48,6 +48,7 @@ jobs:
       - name: Build with VitePress
         run: pnpm run docs:build # 或 pnpm docs:build / yarn docs:build / bun run docs:build
       - name: Commit and Push
+        shell: bash
         run: |
           cd docs/.vitepress/dist
           git init
