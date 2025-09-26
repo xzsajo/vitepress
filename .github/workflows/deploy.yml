@@ -50,12 +50,13 @@ jobs:
       - name: Commit and Push
         shell: bash
         run: |
+          ts = $(TZ="Asia/Shanghai" date + "%Z %Y-%m-%d %A %H:%M:%S")
           cd docs/.vitepress/dist
           git init
           git config --global user.name '${{ secrets.GITHUBUSERNAME }}'
           git config --global user.email '${{ secrets.GITHUBEMAIL }}'
           git add .
-          git commit -m "${{ github.event.head_commit.message }} $(TZ="Asia/Shanghai" date + "%Z %Y-%m-%d %A %H:%M:%S") Updated By Github Actions"
+          git commit -m "${{ github.event.head_commit.message }} ${ts} Updated By Github Actions"
           git push --force --quiet "https://${{ secrets.GITHUBUSERNAME }}:${{ secrets.GITHUBTOKEN }}@github.com/${{ secrets.GITHUBUSERNAME }}/YouDocs.git" master:main
       # - name: Upload artifact
         # uses: actions/upload-pages-artifact@v3
