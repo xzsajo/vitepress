@@ -13,7 +13,6 @@ import llmstxt from 'vitepress-plugin-llms'
 const prod = !!process.env.NETLIFY
 
 export default defineConfig({
-  base: '/vitepress/',
   title: 'VitePress',
 
   rewrites: {
